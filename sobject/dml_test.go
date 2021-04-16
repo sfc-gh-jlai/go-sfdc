@@ -7,9 +7,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/g8rswimmer/go-sfdc"
+	"github.com/sfc-gh-jlai/go-sfdc"
 
-	"github.com/g8rswimmer/go-sfdc/session"
+	"github.com/sfc-gh-jlai/go-sfdc/session"
 )
 
 type mockInserter struct {
