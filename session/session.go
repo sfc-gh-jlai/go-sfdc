@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"io/ioutil"
 
 	"github.com/g8rswimmer/go-sfdc"
 	"github.com/g8rswimmer/go-sfdc/credentials"
@@ -117,7 +118,8 @@ func passwordSessionResponse(request *http.Request, client *http.Client) (*sessi
 	}
 
 	if response.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("session response error, code: %d status: %s, body: %s", response.StatusCode, response.Status, response.Body)
+		body, _ := ioutil.ReadAll(response.Body)
+		return nil, fmt.Errorf("session response error, code: %d status: %s, body: %s", response.StatusCode, response.Status, string(body))
 	}
 	decoder := json.NewDecoder(response.Body)
 	defer response.Body.Close()
