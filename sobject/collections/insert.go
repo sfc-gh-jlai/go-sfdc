@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"net/http"
 
-	"github.com/sfc-gh-jlai/go-sfdc/session"
-	"github.com/sfc-gh-jlai/go-sfdc/sobject"
+	"github.com/g8rswimmer/go-sfdc/session"
+	"github.com/g8rswimmer/go-sfdc/sobject"
 )
 
 type insert struct {
