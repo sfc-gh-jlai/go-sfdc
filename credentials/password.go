@@ -1,6 +1,7 @@
 package credentials
 
 import (
+	"fmt"
 	"io"
 	"net/url"
 	"strings"
@@ -17,6 +18,10 @@ func (provider *passwordProvider) Retrieve() (io.Reader, error) {
 	form.Add("password", provider.creds.Password)
 	form.Add("client_id", provider.creds.ClientID)
 	form.Add("client_secret", provider.creds.ClientSecret)
+
+	debugging := url.Values{}
+	debugging.Add("username", provider.creds.Username)
+	fmt.Printf("Using username %v", debugging.Encode())
 
 	return strings.NewReader(form.Encode()), nil
 }
